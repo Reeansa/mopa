@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mopa - Metode Pembayaran</title>
+    <link rel="shortcut icon" href="../assets/img/favicon-32x32.png" type="image/x-icon">
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body>
+    <nav class="bg-white h-100 w-100 shadow d-flex justify-content-center p-3">
+        <a href="home.html"><img src="../assets/img/logo.png" height="50" width="50" alt=""></a>
+    </nav>
+    <main class="container mt-5">
+        <div class="row">
+            <div class="col-12 col-md-8">
+                <div class="bg-white shadow p-5">
+                    <h5 class="fw-bold">Metode Pembayaran</h5>
+                    <form action="POST" class="mt-4">
+                        <div class="d-flex align-items-center justify-content-center">
+                            <select class="form-control fw-semibold border-0 border-bottom" name="Metode" id="bank">
+                                <option value="Bank" selected>Bank</option>
+                                <option value="COD">Bayar di Tempat</option>
+                                <option value="dompetDigital">Dompet Digital</option>
+                            </select>
+                            <i class="bi bi-chevron-compact-down"></i>
+                        </div>
+                        <div class="mt-4">
+                            <span class="form-label col-form-label-sm">Bank Tujuan</span>
+                            <div class="d-flex align-items-center justify-content-center mt-2">
+                                <select class="form-control fw-semibold border-0 border-bottom" name="Bank" id="">
+                                    <option value="BSI" selected>Bank Syariah Indonesia</option>
+                                    <option value="BRI">Bank Rakyat Indonesia</option>
+                                    <option value="BCA">Bank Central Asia</option>
+                                    <option value="BNI">Bank Negara Indonesia</option>
+                                </select>
+                                <i class="bi bi-chevron-compact-down"></i>
+                            </div>
+                        </div>
+                        <div class="mt-4" style="color: #808080;">
+                            <p>Informasi Rekening Pengirim</p>
+                            <div class="d-flex gap-4">
+                                <div class="w-100">
+                                    <label class="form-label col-form-label-sm" for="">Nama Pemilik</label>
+                                    <input class="form-control h-50" type="text" name="Nama_Pemilik" id="Pemilik">
+                                </div>
+                                <div class="w-100">
+                                    <label class="form-label col-form-label-sm" for="">No Rekening</label>
+                                    <input class="form-control h-50" type="number" name="No_Rekening" id="Rekening">
+                                    <div id="emailHelp" class="form-text">Jika melalui teller, isi awal nomor rekening
+                                        dengan 000</div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="bg-white shadow p-5">
+                    <h5>Rincian Pesanan</h5>
+                    <div>
+                        <h6>Jumlah Service</h6>
+                        <p>5</p>
+                    </div>
+                    <div>
+                        <h6>Diskon <span class="text-secondary">(dalam %)</span></h6>
+                        <p>7.5%</p>
+                    </div>
+                    <div>
+                        <h6>Biaya Layanan</h6>
+                        <p>Rp. 1.000</p>
+                    </div>
+                    <div>
+                        <h6>Total Harga</h6>
+                        <p>Rp. 186.000</p>
+                    </div>
+                    <div class="bg-light p-4 mt-3">
+                        <div class="d-flex align-items-center gap-3">
+                            <img src="../assets/img/icons/clock.png" alt="">
+                            <div class="d-flex flex-column justify-content-center gap-2">
+                                <h6 style="margin-bottom: 0;">Perkiraan Waktu Selesai</h6>
+                                <p style="margin-bottom: 0;">Selesai dalam 5 menit</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-light p-4 mt-3">
+                        <div class="d-flex align-items-center gap-3">
+                            <img src="../assets/img/icons/defense.png" alt="">
+                            <div class="d-flex flex-column justify-content-center gap-2">
+                                <h6 style="margin-bottom: 0;">Perkiraan Waktu Selesai</h6>
+                                <p style="margin-bottom: 0;">Selesai dalam 5 menit</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 text-center mt-5">
+                <button class="btn btn-primary w-25" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal">Bayar</button>
+            </div>
+        </div>
+        <!-- Modal Bayar -->
+        <div class="modal fade align-items-center justify-content-center" id="exampleModal" tabindex="-1"
+            aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body d-flex flex-column align-items-center justify-content-center"
+                        style="height: 500px;">
+                        <div class="d-flex align-items-center justify-content-center rounded-circle"
+                            style="height: 200px; width: 200px; background-color: #EC1337;">
+                            <i class="bi bi-check text-white" style="font-size: 100px;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Modal Bayar -->
+
+        <!-- Modal Rating -->
+        <div class="modal fade align-items-center justify-content-center" id="ratingModal" tabindex="-1"
+            aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="text-center p-5">
+                            <h3>Beri Penilaian</h3>
+                            <p>Apakah Anda puas dengan layanan kami?</p>
+                            <div id='rating'>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <form action="#">
+                                <textarea class="w-100" name="" id="" cols="30" rows="10"></textarea>
+                                <button class="btn btn-primary w-25 p-3 mt-3">Oke</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Modal Rating -->
+    </main>
+    <script src="../assets/js/jquery-3.7.0.min.js"></script>
+    <script src="../assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const myModal = document.getElementById('myModal')
+        const myInput = document.getElementById('myInput')
+
+        myModal.addEventListener('shown.bs.modal', () => {
+            myInput.focus()
+        })
+    </script>
+    <script>
+        var ratingModalShown = false;
+
+        setTimeout(function () {
+            $('#exampleModal').modal('hide');
+            if (!ratingModalShown) {
+                $('#ratingModal').modal('show');
+                ratingModalShown = true;
+            }
+        }, 1); // Delay 3 detik (3000 milidetik)
+    </script>
+
+    <script src="../assets/js/rating.js"></script>
+</body>
+
+</html>

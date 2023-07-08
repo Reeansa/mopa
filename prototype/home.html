@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mopa - Prototype</title>
+    <link rel="shortcut icon" href="../assets/img/favicon-32x32.png" type="image/x-icon">
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.css">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body style="background-color: #FCFCFC;">
+    <nav class="bg-white h-100 w-100 shadow d-flex justify-content-center p-3">
+        <a href="home.html"><img src="../assets/img/logo.png" height="50" width="50" alt=""></a>
+    </nav>
+    <main class="container">
+        <div class="d-flex flex-column gap-2 mt-5">
+            <h3 class="text-capitalize fw-bold">bengkel terdekat di sekitar anda</h3>
+            <p class="text-capitalize">ditemukan 3 bengkel terdekat</p>
+            <div class="d-flex w-100 gap-4">
+                <input class="w-100 form-control shadow-sm rounded" type="text" name="" id="cari-bengkel"
+                    placeholder="cari bengkel">
+                <button class="btn btn-primary" onclick="searchBengkel()">cari</button>
+            </div>
+        </div>
+        <script
+            src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.js"></script>
+        <link rel="stylesheet"
+            href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.css"
+            type="text/css">
+        <section id="map" class="mt-5"></section>
+        <section id="bengkel-section">
+            <h3 class="text-capitalize fw-bold text-center mt-5">Data Bengkel Terdekat</h3>
+            <div class="row mt-5">
+                <div class="col-md-6">
+                    <div class="d-flex flex-column gap-4" id="bengkel-container">
+                        <div class="bg-white shadow-sm p-3">
+                            <div class="d-flex flex-md-row flex-column gap-4">
+                                <a class="nav-link" href="#"><img src="../assets/img/bengkel/nusantara-motor.jpg"
+                                        width="150" height="150" alt=""></a>
+                                <div class="d-flex flex-column gap-2">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <h5 class="fw-semibold mb-0"><a class="nav-link" href="#">Nusantara Motor</a>
+                                        </h5>
+                                        <button class="btn btn-primary" data-bs-toggle="modal"
+                                            data-bs-target="#exampleModal">Detail</button>
+                                    </div>
+                                    <div class="d-flex" style="width: 20%; height: 20%;">
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                    </div>
+                                    <p class="mb-0">JL. Letnan Jl. Jendral Suprapto No.21-22, Kauman Lama, Purwokerto
+                                        Lor, Kec. Purwokerto Tim., Kabupaten Banyumas, Jawa Tengah 53114</p>
+                                    <div class="d-flex gap-3">
+                                        <div class="d-flex align-items-center justify-content-center gap-2">
+                                            <svg width="18" height="13" viewBox="0 0 18 13" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M6.55001 13.0001L0.850006 7.3001L2.27501 5.8751L6.55001 10.1501L15.725 0.975098L17.15 2.4001L6.55001 13.0001Z"
+                                                    fill="#EC1337" />
+                                            </svg>
+                                            <p class="mb-0">Montir Panggilan</p>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-center gap-2">
+                                            <svg width="18" height="13" viewBox="0 0 18 13" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M6.55001 13.0001L0.850006 7.3001L2.27501 5.8751L6.55001 10.1501L15.725 0.975098L17.15 2.4001L6.55001 13.0001Z"
+                                                    fill="#EC1337" />
+                                            </svg>
+                                            <p class="mb-0">Service</p>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-center gap-2">
+                                            <svg width="18" height="13" viewBox="0 0 18 13" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M6.55001 13.0001L0.850006 7.3001L2.27501 5.8751L6.55001 10.1501L15.725 0.975098L17.15 2.4001L6.55001 13.0001Z"
+                                                    fill="#EC1337" />
+                                            </svg>
+                                            <p class="mb-0">Buka 24 Jam</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- More similar bengkel entries... -->
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="d-flex flex-column gap-4" id="bengkel-container2">
+                        <div class="bg-white shadow-sm p-3">
+                            <div class="d-flex flex-md-row flex-column gap-4">
+                                <a href="detail.html"><img src="../assets/img/bengkel/multijaya.png" width="150"
+                                        height="150" alt=""></a>
+                                <div class="d-flex flex-column gap-2">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <h5 class="fw-semibold mb-0"><a href="detail.html" class="nav-link">Multi
+                                                Jaya</a></h5>
+                                        <button class="btn btn-primary" data-bs-toggle="modal"
+                                            data-bs-target="#exampleModal">Detail</button>
+                                    </div>
+                                    <div class="d-flex" style="width: 20%; height: 20%;">
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                    </div>
+                                    <p style="font-size: 14px; margin-bottom: 0;">H6GV+24C, Unnamed Road, Kauman Lama,
+                                        Purwokerto Lor, Kec. Purwokerto Tim., Kabupaten Banyumas, Jawa Tengah 53114</p>
+                                    <div class="d-flex gap-3">
+                                        <div class="d-flex align-items-center justify-content-center gap-2">
+                                            <svg width="18" height="13" viewBox="0 0 18 13" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M6.55001 13.0001L0.850006 7.3001L2.27501 5.8751L6.55001 10.1501L15.725 0.975098L17.15 2.4001L6.55001 13.0001Z"
+                                                    fill="#EC1337" />
+                                            </svg>
+                                            <p class="mb-0">Service</p>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-center gap-2">
+                                            <svg width="18" height="13" viewBox="0 0 18 13" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M6.55001 13.0001L0.850006 7.3001L2.27501 5.8751L6.55001 10.1501L15.725 0.975098L17.15 2.4001L6.55001 13.0001Z"
+                                                    fill="#EC1337" />
+                                            </svg>
+                                            <p class="mb-0">Buka 24 Jam</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- More similar bengkel entries... -->
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <button class="btn btn-primary" id="load-more-btn">Load More</button>
+            </div>
+        </section>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="d-flex flex-column flex-md-row gap-4">
+                            <img src="../assets/img/bengkel/nusantara-motor.jpg" width="150" height="150" alt="">
+                            <div class="d-flex flex-column gap-2">
+                                <div class="d-flex justify-content-between">
+                                    <h5 class="fw-semibold" style="margin-bottom: 0;">nusantara motor</h5>
+                                </div>
+                                <div class="d-flex" style="width: 20%; height: 20%;">
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                </div>
+                                <p style="font-size: 14px; margin-bottom: 0;">JL. Letnan Jl. Jendral Suprapto
+                                    No.21-22, Kauman Lama, Purwokerto Lor, Kec. Purwokerto Tim., Kabupaten Banyumas,
+                                    Jawa Tengah 53114</p>
+                                <div class="d-flex flex-wrap gap-3">
+                                    <div class="d-flex align-items-center justify-content-center gap-2">
+                                        <svg width="18" height="13" viewBox="0 0 18 13" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M6.55001 13.0001L0.850006 7.3001L2.27501 5.8751L6.55001 10.1501L15.725 0.975098L17.15 2.4001L6.55001 13.0001Z"
+                                                fill="#EC1337" />
+                                        </svg>
+                                        <p style="margin-bottom: 0;">montir panggilan</p>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-center gap-2">
+                                        <svg width="18" height="13" viewBox="0 0 18 13" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M6.55001 13.0001L0.850006 7.3001L2.27501 5.8751L6.55001 10.1501L15.725 0.975098L17.15 2.4001L6.55001 13.0001Z"
+                                                fill="#EC1337" />
+                                        </svg>
+                                        <p style="margin-bottom: 0;">service</p>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-center gap-2">
+                                        <svg width="18" height="13" viewBox="0 0 18 13" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M6.55001 13.0001L0.850006 7.3001L2.27501 5.8751L6.55001 10.1501L15.725 0.975098L17.15 2.4001L6.55001 13.0001Z"
+                                                fill="#EC1337" />
+                                        </svg>
+                                        <p style="margin-bottom: 0;">buka 24 jam</p>
+                                    </div>
+                                </div>
+                                <div class="card-body pt-4">
+                                    <h5>Registration Info</h5>
+                                    <form action="POST">
+                                        <div class="mt-2">
+                                            <label class="form-label col-form-label-sm" for="Name">Nama</label>
+                                            <input class="form-control form-control-sm" type="text" name="Name" id="">
+                                        </div>
+                                        <div class="mt-2">
+                                            <label class="form-label col-form-label-sm" for="Lokasi">Lokasi</label>
+                                            <input class="form-control form-control-sm" type="text" name="Lokasi" id="">
+                                        </div>
+                                        <div class="mt-2">
+                                            <label class="form-label col-form-label-sm" for="PilihKendala">Pilih
+                                                kendala</label>
+                                            <select class="form-select form-select-sm"
+                                                aria-label=".form-select-sm example">
+                                                <option value="mogok" selected>Mogok</option>
+                                                <option value="rantai-putus">rantai putus</option>
+                                                <option value="ban-bocor">ban bocor</option>
+                                            </select>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <a href="detail.html"><button type="button" class="btn btn-primary">Order Montir</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end modal -->
+    </main>
+    <script src="../assets/js/maps.js"></script>
+    <script src="../assets/js/prototype.js"></script>
+    <script src="../assets/js/jquery-3.7.0.min.js"></script>
+    <script src="../assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

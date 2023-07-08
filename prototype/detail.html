@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mopa - Detail</title>
+    <link rel="shortcut icon" href="../assets/img/favicon-32x32.png" type="image/x-icon">
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="spinner-wrapper">
+        <div class="text-danger" role="status">
+            <span class="fw-semibold">memanggil montir...</span>
+            <img src="../assets/img/giphy.gif" width="100" height="100" alt="">
+        </div>
+    </div>
+    <nav class="bg-white h-100 w-100 shadow d-flex justify-content-center p-3">
+        <a href="home.html"><img src="../assets/img/logo.png" height="50" width="50" alt=""></a>
+    </nav>
+    <main class="container">
+        <script
+            src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.js"></script>
+        <link rel="stylesheet"
+            href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.css"
+            type="text/css">
+        <section id="map" class="rounded mt-5"></section>
+        <section class="bg-white rounded shadow mt-5 p-5">
+            <h2 class="fs-4">status service</h2>
+            <div class="d-flex flex-wrap gap-4 w-100 mt-5 pb-5">
+                <img src="../assets/img/img-responden.png" class="rounded" width="120" height="120" alt="">
+                <div class="d-flex flex-column gap-2 flex-grow-1">
+                    <h4 class="fs-5" style="margin-bottom: 0;">Singgih Budi Wijaya</h4>
+                    <p class="fs-6" style="margin-bottom: 0;">Montir yang sudah berpengalaman sejak tahun gajah</p>
+                    <p class="fs-6" style="margin-bottom: 0;">Whatsapp: +62 8222-0581-829</p>
+                    <div class="d-flex" style="width: 20%; height: 20%;">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                    </div>
+                </div>
+                <div class="w-100 h-100 text-end align-self-end">
+                    <button class="btn btn-primary h-100 justify-content-between">Telepon</button>
+                    <button class="btn btn-secondary h-100 justify-content-between">Chat</button>
+                </div>
+            </div>
+            <svg width="100%" height="3" viewBox="0 0 1192 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0.998047 1.5L1191 1.5" stroke="#EDEDED" stroke-width="2" />
+            </svg>
+            <div class="container pt-5">
+                <div class="progress w-100">
+                    <div class="progress-bar" style="width: 25%"></div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col">
+                        <div class="d-flex flex-column gap-3 align-items-center justify-content-center">
+                            <div class="circle-step"></div>
+                            <p class="text-center">Persiapan</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="d-flex flex-column gap-3 align-items-center justify-content-center">
+                            <div class="circle-step"></div>
+                            <p class="text-center">Montir dalam perjalanan</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="d-flex flex-column gap-3 align-items-center justify-content-center">
+                            <div class="circle-step"></div>
+                            <p class="text-center">Sampai</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="d-flex flex-column gap-3 align-items-center justify-content-center">
+                            <div class="circle-step"></div>
+                            <p class="text-center">Service</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="container_steps pt-5">
+                <div class="steps d-flex justify-content-between">
+                    <div class="d-flex flex-column gap-2 align-items-center justify-content-center">
+                        <span class="circle_steps active">&#10004;</span>
+                        <p class="fs-6" style="margin-bottom: 0;">persiapan</p>
+                    </div>
+                    <div class="d-flex flex-column gap-2 align-items-center justify-content-center">
+                        <span class="circle_steps active">&#10004;</span>
+                        <p class="fs-6" style="margin-bottom: 0;">montir dalam perjalanan</p>
+                    </div>
+                    <div class="d-flex flex-column gap-2 align-items-center justify-content-center">
+                        <span class="circle_steps active">&#10004;</span>
+                        <p class="fs-6" style="margin-bottom: 0;">sampai</p>
+                    </div>
+                    <div class="d-flex flex-column gap-2 align-items-center justify-content-center">
+                        <span class="circle_steps active">&#10004;</span>
+                        <p class="fs-6" style="margin-bottom: 0;">service selesai</p>
+                    </div>
+                    
+                </div>
+            </div> -->
+        </section>
+        <div class="w-100 text-end">
+            <a href="detail-pembayaran.html"><button class="btn btn-primary mt-5">Detail service</button></a>
+        </div>
+    </main>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
+    <script src="../assets/js/jquery-3.7.0.min.js"></script>
+    <script src="../assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/detail.js"></script>
+    <script src="../assets/js/maps.js"></script>
+</body>
+
+</html>
